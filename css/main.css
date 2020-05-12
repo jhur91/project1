@@ -1,0 +1,82 @@
+body {
+    height: 100vh;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    text-align: center;
+  }
+
+/*#wrapper {
+    display: flex;
+    
+  }
+
+  #head {
+    background:#cc5;
+    background-size: 75px 150px;
+    height: 150px;
+    width: 150px;
+    border-radius: 60px 60px 10px 10px;
+    position: relative;
+    left: 70px;
+  }
+
+  #torso {
+    height: 0;
+    width: 140px;
+    border-top: 300px solid #bc6;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-radius: 20px 20px 20px 20px;
+  }
+  #leftArm {
+    font-family: 'Poller One', verdana, arial, sans-serif;
+    font-weight: bold;
+    font-size: 250px;
+    color: #666;
+    transform: rotate(200deg);
+    position: relative;
+    top: -320px;
+    left: -190px;
+    z-index: -1;
+  }
+  #rightArm {
+    font-family: 'Poller One', verdana, arial, sans-serif;
+    font-weight: bold;
+    font-size: 250px;
+    color: #666;
+    transform: scaleY(-1) rotate(20deg);
+    position: relative;
+    top: -620px;
+    left: 190px;
+    z-index: -1;
+  }
+#leftLeg {
+    font-family: 'Poller One', verdana, arial, sans-serif;
+    font-weight: bold;
+    font-size: 250px;
+    color: #666;
+    transform: scaleX(-1);
+    position: relative;
+    top: -100px;
+    left: -150px;
+    z-index: -1;
+      
+}
+#rightLeg{
+    font-family: 'Poller One', verdana, arial, sans-serif;
+    font-weight: bold;
+    font-size: 250px;
+    color: #666;
+    position: relative;
+    top: -400px;
+    left: 150px;
+    z-index: -1;
+  } */
+
+#wordWrapper {
+    background: yellow;
+    display: flex;
+    justify-content: space-evenly;
+} 
