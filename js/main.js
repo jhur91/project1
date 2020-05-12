@@ -30,8 +30,9 @@ document.getElementById('reset').addEventListener('click', reset);
 /*----- functions -----*/
 
 let secretWordsArray = ["pizza", "watermelon", "book", "guitar", "dog"]
-
 secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
+
+// secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
 let boardSize = secretWord.split('');
 let currentStanding = new Array(boardSize.length).fill(null);
 
@@ -56,25 +57,32 @@ function handleClick() {
         })
     } else {
         console.log("not included!")
-        // prevGuessList = document.createElement('li');
         prevGuesses.push(inputSpace.value);
         guesses = guesses - 1;
 
     }
     console.log(currentStanding);
+    
     render();
 }
 
 function init() {
     guesses=6;
+    prevGuesses= [];
+
     render();
 }
 
 function reset() {
+    secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
+    console.log(secretWord);
+    boardSize = secretWord.split('');
+    currentStanding = new Array(boardSize.length).fill(null);
     init();
 }
 
 function render() {
+    
     board.textContent = "";
     currentStanding.forEach(function(e,i){
     newSpace = document.createElement('div');
@@ -93,9 +101,32 @@ function render() {
     if(guesses===0){
         alert("you're a loser!");
     }
-    prevGuessDisplay.innerHTML = prevGuesses;
-    // if(currentStanding.length===boardSize.length){
-    //     alert("Winner!");
-    // }
+    prevGuessDisplay.innerHTML = `Previous Guesses: ${prevGuesses}`;
     
+    if(currentStanding.join('')===secretWord){
+    alert("winner")
+    }  
+  bodyParts();
+}
+    
+
+function bodyParts(){
+  if(guesses===5){
+    head.classList.remove("noDisplay");
+  }
+  if(guesses===4){
+    torso.classList.remove("noDisplay");
+  }
+  if(guesses===3){
+    leftArm.classList.remove("noDisplay");
+  }
+  if(guesses===2){
+    rightArm.classList.remove("noDisplay");
+  }
+  if(guesses===1){
+    leftLeg.classList.remove("noDisplay");
+  }
+  if(guesses===0){
+    rightLeg.classList.remove("noDisplay");
+  }
 }
