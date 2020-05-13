@@ -9,6 +9,8 @@ let guesses;
 let newSpace;
 
 /*----- cached element references -----*/
+const winnerLine = document.getElementById('winnerLine');
+
 const head = document.getElementById('head');
 const torso = document.getElementById('torso');
 const leftArm = document.getElementById('leftArm');
@@ -27,9 +29,17 @@ const prevGuessDisplay = document.querySelector('ul');
 document.getElementById('submit').addEventListener('click', handleClick);
 document.getElementById('reset').addEventListener('click', reset);
 
+inputSpace.addEventListener("keyup", function(event) {
+    if(event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("submit").click();
+    }
+});
+
+
 /*----- functions -----*/
 
-let secretWordsArray = ["pizza", "watermelon", "book", "guitar", "dog"]
+let secretWordsArray = ["pizza", "watermelon", "book", "guitar", "dog", "apple", "cheese", "broccoli", "chicken", "carrot", "banana", "chocolate", "chimichanga", "spaghetti", "daiquiri", "colleague", "caribbean", "parliament", "perseverance", "restaurant", "questionnaire", "mischievous", "fluorescent", "smorgasbord"]
 secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
 
 // secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
@@ -67,6 +77,13 @@ function handleClick() {
 }
 
 function init() {
+    winnerLine.innerText = " ";
+    head.classList.add("noDisplay");
+    torso.classList.add("noDisplay");
+    leftArm.classList.add("noDisplay");
+    rightArm.classList.add("noDisplay");
+    leftLeg.classList.add("noDisplay");
+    rightLeg.classList.add("noDisplay");
     guesses=6;
     prevGuesses= [];
 
@@ -74,6 +91,7 @@ function init() {
 }
 
 function reset() {
+    document.getElementById('submit').addEventListener('click', handleClick);
     secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
     console.log(secretWord);
     boardSize = secretWord.split('');
@@ -99,13 +117,15 @@ function render() {
     })
     console.log(`remaining guesses: ${guesses}`);
     if(guesses===0){
-        alert("you're a loser!");
+      winnerLine.innerText = "You're a LOSER!";
     }
     prevGuessDisplay.innerHTML = `Previous Guesses: ${prevGuesses}`;
     
     if(currentStanding.join('')===secretWord){
-    alert("winner")
+    winnerLine.innerText = "You win!";
+    document.getElementById('submit').removeEventListener('click', handleClick);
     }  
+  inputSpace.value = "";  
   bodyParts();
 }
     
@@ -128,5 +148,6 @@ function bodyParts(){
   }
   if(guesses===0){
     rightLeg.classList.remove("noDisplay");
+    document.getElementById('submit').removeEventListener('click', handleClick);
   }
 }

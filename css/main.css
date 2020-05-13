@@ -17,7 +17,8 @@ display: none;
 }
 
 #head {
-
+  position: relative;
+  top: 5px;
 }
 
 #torsoPieces {
@@ -30,13 +31,15 @@ display: none;
 
 #leftArm {
   position: relative;
-  top: -320px;
-  left: -190px;
+  top: -18px;
+  left: -10px;
 
 }
 
 #rightArm {
-
+  position: relative;
+  top: -36px;
+  left: 10px;
 }
 
 #legPieces {
@@ -44,11 +47,16 @@ display: none;
 }
 
 #leftLeg {
-
+  position: relative;
+  top: -42px;
+  left: -5px;
+  transform: scaleX(-1);
 }
 
 #rightLeg {
-
+position: relative;
+  top: -60px;
+  left: 5px;
 }
 
 #wordWrapper {
