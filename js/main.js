@@ -39,10 +39,9 @@ inputSpace.addEventListener("keyup", function(event) {
 
 /*----- functions -----*/
 
-let secretWordsArray = ["pizza", "watermelon", "book", "guitar", "dog", "apple", "cheese", "broccoli", "chicken", "carrot", "banana", "chocolate", "chimichanga", "spaghetti", "daiquiri", "colleague", "caribbean", "parliament", "perseverance", "restaurant", "questionnaire", "mischievous", "fluorescent", "smorgasbord"]
+const secretWordsArray = ["pizza", "watermelon", "book", "guitar", "dog", "apple", "cheese", "broccoli", "chicken", "carrot", "banana", "chocolate", "chimichanga", "spaghetti", "daiquiri", "colleague", "caribbean", "parliament", "perseverance", "restaurant", "questionnaire", "mischievous", "fluorescent", "smorgasbord"]
 secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
 
-// secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
 let boardSize = secretWord.split('');
 let currentStanding = new Array(boardSize.length).fill(null);
 
@@ -117,7 +116,7 @@ function render() {
     })
     console.log(`remaining guesses: ${guesses}`);
     if(guesses===0){
-      winnerLine.innerText = "You're a LOSER!";
+      winnerLine.innerText = `You're a LOSER! The secret word is: ${secretWord}`;
     }
     prevGuessDisplay.innerHTML = `Previous Guesses: ${prevGuesses}`;
     
