@@ -5,11 +5,11 @@ body {
 }
 
 h1 {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .noDisplay {
-display: none;
+  display: none;
 }
 
 #head {
@@ -21,9 +21,6 @@ display: none;
   display: flex;
 }
 
-#torso {
-
-}
 
 #leftArm {
   position: relative;
@@ -50,7 +47,7 @@ display: none;
 }
 
 #rightLeg {
-position: relative;
+  position: relative;
   top: -60px;
   left: 5px;
 }
@@ -64,14 +61,14 @@ position: relative;
 } 
 
 #inputRow {
-display: flex;
-justify-content: center;
-margin: 40px;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
 }
 
 
 
 input, #submit, #reset {
-font-size: 20px;
-margin: 10px;
+  font-size: 20px;
+  margin: 10px;
 }
