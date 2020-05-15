@@ -1,5 +1,5 @@
 # HANGMAN GAME
-### This is a game in which you need to identify the secret word. You will check to see which letters fill in the blanks until you fill them all up to fully reveal the secret word.  You may make up to 5 incorrect guesses. Upon the 6th incorrect guess, the game will end and you will have lost. If you correctly identify the secret word without using up the incorrect guesses, you will have won.  The number of incorrect guesses are represented by a body piece to our hangman.  When all incorrect guesses have been used, the hangman will have all parts to its body.
+### This is a game in which you need to identify the secret word. You will check to see which letters fill in the blanks until you fill them all up to fully reveal the secret word.  You may make up to 6 incorrect guesses. Upon the 6th incorrect guess, the game will end and you will have lost. If you correctly identify the secret word without using up the incorrect guesses, you will have won.  The number of incorrect guesses are represented by a body piece to our hangman, a person-like figure that will develop as incorrect guesses are played. When all incorrect guesses have been used, the hangman will have all parts to its body.
 
 
 ![Hangman Game](https://i.imgur.com/XJscA9J.png "Project 1: Hangman Game")
