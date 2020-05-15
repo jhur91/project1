@@ -21,7 +21,6 @@ const rightLeg = document.getElementById('rightLeg');
 
 const blankSpaces = document.getElementById('wrapper');
 const board = document.getElementById('wordWrapper');
-console.log(board)
 const inputSpace = document.querySelector('input');
 const prevGuessDisplay = document.querySelector('ul');
 
@@ -38,29 +37,30 @@ inputSpace.addEventListener("keyup", function(event) {
 
 
 /*----- functions -----*/
-
+// These are the secret words and how it is randomly chosen from the array.
 const secretWordsArray = ["pizza", "watermelon", "book", "guitar", "dog", "apple", "cheese", "broccoli", "chicken", "carrot", "banana", "chocolate", "chimichanga", "spaghetti", "daiquiri", "colleague", "caribbean", "parliament", "perseverance", "restaurant", "questionnaire", "mischievous", "fluorescent", "smorgasbord"]
 secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
-
+//boardsize gets the secret word to split up into individual letters
 let boardSize = secretWord.split('');
+//currentStanding creates a blank new array based off the length of the secret word and fills in the gaps with null.
 let currentStanding = new Array(boardSize.length).fill(null);
 
-
+//empty array where prevGuesses will fill
 let prevGuesses = [];
 
 init()
 
-
-
-
+//this function checks if the secretWord has the input letter.  
 function handleClick() {
     if(secretWord.includes(inputSpace.value)) {     
+        //this will go through each letter and compare it with input and replace the null space of currentStanding with the correct letter
         boardSize.forEach(function(e,i){       
             if(e===inputSpace.value) {
                 currentStanding[i]= e;
             }
         })
     } else {
+      //if secretWord doesn't include the input value, it will just push the value into prevGuesses array.
         prevGuesses.push(inputSpace.value);
         guesses = guesses - 1;
     }    
@@ -89,27 +89,28 @@ function reset() {
     init();
 }
 
+//for each space of currentStanding, we will create a div and fill it in with either underline or letter.
 function render() {
     
-    board.textContent = "";
-    currentStanding.forEach(function(e,i){
-    newSpace = document.createElement('div');
-    newSpace.setAttribute("class", "boxes");
-    if(e===null) {
+  board.textContent = "";
+  currentStanding.forEach(function(e,i){
+      newSpace = document.createElement('div');
+      newSpace.setAttribute("class", "boxes");
+      if(e===null) {
         newSpace.innerHTML = "__________"
-    } else {
+      } else {
         newSpace.innerHTML = `____${e}_____`
-    }
-    board.appendChild(newSpace);
+      }
+      board.appendChild(newSpace);
     })
-    if(guesses===0){
+  if(guesses===0){
       winnerLine.innerText = `You're a LOSER! The secret word is: ${secretWord}`;
     }
-    prevGuessDisplay.innerHTML = `Previous Guesses: ${prevGuesses}`;
+   prevGuessDisplay.innerHTML = `Previous Guesses: ${prevGuesses}`;
     
-    if(currentStanding.join('')===secretWord){
-    winnerLine.innerText = "You win!";
-    document.getElementById('submit').removeEventListener('click', handleClick);
+  if(currentStanding.join('')===secretWord){
+      winnerLine.innerText = "You win!";
+      document.getElementById('submit').removeEventListener('click', handleClick);
     }  
   inputSpace.value = "";  
   bodyParts();
