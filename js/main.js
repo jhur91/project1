@@ -54,24 +54,16 @@ init()
 
 
 function handleClick() {
-    if(secretWord.includes(inputSpace.value)) {
-        console.log("included!");
-       
-        boardSize.forEach(function(e,i){
-            console.log(e);
-            console.log(e===inputSpace.value);
+    if(secretWord.includes(inputSpace.value)) {     
+        boardSize.forEach(function(e,i){       
             if(e===inputSpace.value) {
                 currentStanding[i]= e;
             }
         })
     } else {
-        console.log("not included!")
         prevGuesses.push(inputSpace.value);
         guesses = guesses - 1;
-
-    }
-    console.log(currentStanding);
-    
+    }    
     render();
 }
 
@@ -92,7 +84,6 @@ function init() {
 function reset() {
     document.getElementById('submit').addEventListener('click', handleClick);
     secretWord= secretWordsArray[Math.floor(Math.random() * secretWordsArray.length)];
-    console.log(secretWord);
     boardSize = secretWord.split('');
     currentStanding = new Array(boardSize.length).fill(null);
     init();
@@ -103,18 +94,14 @@ function render() {
     board.textContent = "";
     currentStanding.forEach(function(e,i){
     newSpace = document.createElement('div');
-    console.log(newSpace);
     newSpace.setAttribute("class", "boxes");
     if(e===null) {
         newSpace.innerHTML = "__________"
     } else {
         newSpace.innerHTML = `____${e}_____`
     }
-   
-    console.log(newSpace);
     board.appendChild(newSpace);
     })
-    console.log(`remaining guesses: ${guesses}`);
     if(guesses===0){
       winnerLine.innerText = `You're a LOSER! The secret word is: ${secretWord}`;
     }
