@@ -6,6 +6,8 @@
 
 ![Hangman Game](https://i.imgur.com/OJLIUsM.png "Winner Screenshot")
 
+![Hangman Game](https://i.imgur.com/BIoUwsg.png "Loser Screenshot")
+
 
 
 # Technologies Used
